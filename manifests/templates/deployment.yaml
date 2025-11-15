@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kongden-spring-boot-version-maven
+  labels:
+    app: kongden-spring-boot-version-maven
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kongden-spring-boot-version-maven
+  template:
+    metadata:
+      labels:
+        app: kongden-spring-boot-version-maven
+    spec:
+      containers:
+        - name: kongden-spring-boot-version-maven
+          image: docker.io/phengbunath/kongden-spring-boot-version-maven:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
