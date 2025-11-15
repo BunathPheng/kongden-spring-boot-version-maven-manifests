@@ -1,0 +1,21 @@
+---
+# Source: helm for kubernetes/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kongden-spring-boot-version-maven                  # Ingress name
+  labels:
+    app: kongden-spring-boot-version-maven
+spec:
+  ingressClassName: nginx   # Optional ingressClass
+  rules:
+    - host: "kongden-spring-boot-version-maven.smartops.space"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kongden-spring-boot-version-maven               # Links to Service name dynamically
+                port:
+                  number: 8080  # Links to service port dynamically
